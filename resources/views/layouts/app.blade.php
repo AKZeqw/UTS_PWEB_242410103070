@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Toko Barang')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #c3cfe2 25%, #f5f7fa 100%);
         }
         .content {
             flex: 1;
-        }
-        .navbar .nav-link {
-            transition: all 0.2s ease-in-out;
-            font-size: 20px;
-        }
-        .navbar .nav-link:hover {
-            color: gold ;
-            transform: translateY(-3px);
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -57,5 +52,19 @@
             });
         }
     </script>
+    
+    @if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Berhasil!',
+            text: '{{ session("success") }}',
+            confirmButtonColor: '#667eea',
+            confirmButtonText: 'OK',
+            timer: 2000,
+            timerProgressBar: true
+        });
+    </script>
+    @endif
 </body>
 </html>
