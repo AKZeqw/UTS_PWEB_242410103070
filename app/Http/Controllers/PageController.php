@@ -14,8 +14,22 @@ class PageController extends Controller
     public function processLogin(Request $request)
     {
         $username = $request->input('username');
-        return redirect()->route('dashboard', ['username' => $username]);
+        $password = $request->input('password');
+        
+        $validUsers = [
+            'admin' => 'admin'
+        ];
+        
+        if (isset($validUsers[$username]) && $validUsers[$username] === $password) {
+            return redirect()->route('dashboard', ['username' => $username])
+                ->with('success', 'Login berhasil!');
+        } else {
+            return redirect()->route('login')
+                ->with('error', 'Username atau password salah!')
+                ->withInput();
+        }
     }
+
 
     public function dashboard(Request $request)
     {
