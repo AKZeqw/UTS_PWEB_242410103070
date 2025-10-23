@@ -1,27 +1,29 @@
-# 🛒 Toko Barang - Sistem Manajemen Barang Toko Sederhana
+# 🛒 Toko Barang - Sistem Manajemen Barang Toko Sederhana (Tanpa Database)
 
-Proyek ini adalah aplikasi web sederhana yang dibangun menggunakan framework Laravel 🚀 untuk mengelola barang di toko. Aplikasi ini menyediakan fungsionalitas dasar seperti login, dashboard, pengelolaan data barang, dan tampilan profil pengguna.
+Proyek ini adalah aplikasi web sederhana yang dibangun menggunakan framework Laravel 🚀 untuk menampilkan data barang di toko. Aplikasi ini **tidak menggunakan database** untuk fungsi intinya; data pengguna dan barang dikelola secara *hardcoded* dalam kode. Fitur yang tersedia meliputi login, dashboard, tampilan data barang, dan profil pengguna.
 
 ## ✨ Fitur Utama
 
-* 🔑 **Login Pengguna:** Sistem autentikasi sederhana untuk masuk ke aplikasi. (Username: `admin`, Password: `admin`)
-* 📊 **Dashboard:** Halaman utama setelah login, menampilkan ringkasan data seperti total barang, jumlah kategori, dan total stok.
-* 📦 **Pengelolaan Barang:** Menampilkan daftar barang yang ada di toko beserta detailnya (nama, kategori, stok, harga) dalam bentuk tabel.
-* 👤 **Profil Pengguna:** Halaman untuk menampilkan informasi profil pengguna yang sedang login.
+* 🔑 **Login Pengguna:** Sistem autentikasi sederhana (tanpa database). Gunakan kredensial berikut:
+    * Username: `admin`
+    * Password: `admin`
+* 📊 **Dashboard:** Halaman utama setelah login, menampilkan ringkasan data statis (total barang, kategori, stok).
+* 📦 **Pengelolaan Barang:** Menampilkan daftar barang yang sudah ditentukan dalam kode (nama, kategori, stok, harga) dalam bentuk tabel. **Data ini tidak berasal dari database.**
+* 👤 **Profil Pengguna:** Halaman untuk menampilkan informasi profil statis pengguna yang sedang login.
 * 🚪 **Logout:** Fungsi untuk keluar dari aplikasi.
 
 ## ⚙️ Persyaratan Sistem
 
 * 🐘 PHP ^8.2
 * 🎼 Composer
-* 🟢 Node.js & NPM
+* 🟢 Node.js & NPM (untuk build aset frontend)
 
 ## 🛠️ Instalasi & Setup
 
 1.  **Clone repository:**
     ```bash
-    git clone https://github.com/AKZeqw/UTS_PWEB_242410103070.git
-    cd UTS_PWEB_242410103070
+    git clone <URL_REPOSITORY_ANDA>
+    cd <NAMA_DIREKTORI_PROYEK>
     ```
 
 2.  **Install dependensi PHP:**
@@ -34,49 +36,38 @@ Proyek ini adalah aplikasi web sederhana yang dibangun menggunakan framework Lar
     ```bash
     cp .env.example .env
     ```
-    ✍️ Sesuaikan konfigurasi database dan variabel environment lainnya jika diperlukan di dalam file `.env`.
+    *(Tidak perlu konfigurasi database karena aplikasi tidak menggunakannya).*
 
 4.  **Generate application key:**
     ```bash
     php artisan key:generate
     ```
+    *(Perintah `php artisan migrate` **tidak diperlukan** karena tidak ada database yang digunakan).*
 
-5.  **Jalankan migrasi database:**
-    Perintah ini akan membuat tabel-tabel yang diperlukan (users, cache, jobs, dll.).
-    ```bash
-    php artisan migrate
-    ```
-    *(📝 Catatan: Pastikan file database SQLite (`database/database.sqlite`) dapat dibuat atau sudah ada jika menggunakan SQLite).*
-
-6.  **Install dependensi Node.js:**
+5.  **Install dependensi Node.js:**
     ```bash
     npm install
     ```
 
-7.  **Build aset frontend (CSS/JS):**
+6.  **Build aset frontend (CSS/JS):**
     ```bash
     npm run build
     ```
 
-8.  **Jalankan server development:**
-    Gunakan perintah `serve` dari Artisan atau script `dev` dari `composer.json`.
+7.  **Jalankan server development:**
     ```bash
     php artisan serve
     ```
-    atau (jika ingin menjalankan semua proses development sekaligus):
-    ```bash
-    composer run dev
-    ```
 
-9.  **Akses Aplikasi:**
+8.  **Akses Aplikasi:**
     🌐 Buka browser dan kunjungi `http://localhost:8000` (atau URL yang ditampilkan oleh `php artisan serve`).
 
 ## 🚀 Penggunaan
 
-* Masuk menggunakan kredensial default:
+* Masuk menggunakan kredensial:
     * 👤 Username: `admin`
     * 🔒 Password: `admin`
-* Jelajahi fitur Dashboard, Pengelolaan Barang, dan Profil melalui navbar.
+* Jelajahi fitur Dashboard, Pengelolaan Barang, dan Profil melalui navbar. Ingat bahwa data barang bersifat statis dan didefinisikan di `app/Http/Controllers/PageController.php`.
 
 ## 🏗️ Dibangun Dengan
 
