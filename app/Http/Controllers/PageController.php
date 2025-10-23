@@ -25,8 +25,7 @@ class PageController extends Controller
                 ->with('success', 'Login berhasil!');
         } else {
             return redirect()->route('login')
-                ->with('error', 'Username atau password salah!')
-                ->withInput();
+                ->with('error', 'Username atau password salah!');
         }
     }
 

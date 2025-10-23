@@ -47,7 +47,7 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '{{ route("logout") }}';
+                    window.location.href = '{{ route("login") }}';
                 }
             });
         }
